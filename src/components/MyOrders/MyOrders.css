@@ -1,0 +1,11 @@
+.enroll-card{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.enroll-img{
+    height: 250px;
+    width: 250px;
+}

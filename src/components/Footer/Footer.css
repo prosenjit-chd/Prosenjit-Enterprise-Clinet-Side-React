@@ -1,0 +1,91 @@
+
+/* *******Footer******** */
+
+/* about us */
+.about-us-container{
+    background-color: #373F50;
+    color: #fff;
+}
+
+.shop-departments li, .account-shipping-info li, .about-us li{
+    list-style: none;
+    margin-bottom: 5px;
+    color: #8F939D;
+}
+.shop-departments h5, .account-shipping-info h5, .about-us h5, .stay-informed h5{
+    margin: 20px 0;
+    color: #fff;
+}
+.stay-informed input{
+    padding-left: 40px !important;
+}
+.stay-informed button{
+    background-color: #FE696A;
+    color: #fff;
+}
+.email-icon{
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    color: #6C757D;
+    font-size: 25px;
+    font-weight: 300;
+}
+.app{
+    display: flex;
+    align-items: center;
+}
+.ios, .android{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B3445;
+    width: 145px;
+    height: 50px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.ios img, .android img{
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+.ios small, .android small{
+    font-size: x-small;
+    font-weight: 700;
+    color: #8F939D;
+}
+
+/* why us */
+.why-us-container{
+    background-color: #2B3445;
+}
+.why-us{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    color: #fff;
+}
+.why-us-logo{
+    font-size: 2.5rem;
+    margin-right: 15px;
+    color: #D25E62;
+}
+.why-us-detail{
+    margin-top: 8px;
+}
+.why-us-detail p{
+    margin-top: -8px;
+    font-size: small;
+    color: #8F939D;
+    font-weight: 500;
+}
+.why-us-container hr{
+    background-color: white;
+}
+.copyright{
+    text-align: center;
+    padding: 10px 0;
+    color: #8F939D;
+    margin-bottom: 0;
+}

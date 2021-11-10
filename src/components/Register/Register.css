@@ -1,0 +1,22 @@
+/* Log In page custom style  */
+.home-main {
+    background-image: url('https://st4.depositphotos.com/11022818/i/600/depositphotos_386364496-stock-photo-solid-color-background-an-empty.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.home-detaimain {
+    background-color: rgba(253, 245, 230, 0.74);
+    height: 560px;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-top: 60px;
+}
+.title{
+    font-size: 22px;
+    font-weight: 600;
+}

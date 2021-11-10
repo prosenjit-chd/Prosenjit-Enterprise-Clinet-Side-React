@@ -1,0 +1,53 @@
+/* Home page custom Style classes  */
+.img-custom{
+    height: 500px;
+}
+.carousel-custom{
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+.home-card-img{
+    height: 240px;
+}
+
+/* Customer Section  */
+.customer-review-tittle{
+    color: #E76F51;
+}
+.customer-picture {
+    height: 149px;
+    width: 149px;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.fa-star{
+    color: #E77C40;
+    font-size: 14px;
+    padding-bottom: 15px;
+}
+.user-name{
+    color: #23A6F0;
+    font-weight: 600;
+    font-size: 14px;
+    padding-bottom: 8px;
+}
+.user-profession{
+    font-weight: 600;
+    font-size: 14px;
+    color: #252B42;
+}
+.star{
+    color: #E77C40;
+    font-size: 14px;
+    padding-bottom: 15px;
+}
+.user-name{
+    color: #23A6F0;
+    font-weight: 600;
+    font-size: 14px;
+}

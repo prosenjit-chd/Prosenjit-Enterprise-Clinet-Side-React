@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Suzuki RS-1",
+        "cc": "170",
+        "milez": "35",
+        "price": 225000,
+        "type": "home",
+        "img": "https://i.ibb.co/Qny88xk/12.jpg",
+        "deatails": "The New Gixxer is featured with muscular street bike styling right, the overall ethos of the appearance is premium & stylish. There’s a large, sculpted fuel tank that takes center-stage, and the flat, wide handlebars give the New Gixxer a butch stance. The New Gixxer’s sharp look is also thanks to the LED headlight and tail-lamp that Suzuki is offering. Turn indicators continue to be conventional bulbs"
+    },
+    {
+        "title": "Yamaha TD-4",
+        "cc": "150",
+        "milez": "40",
+        "price": 250000,
+        "type": "home",
+        "img": "https://i.ibb.co/pfQQ86M/11.jpg",
+        "deatails": " The New Gixxer’s sharp look is also thanks to the LED headlight and tail-lamp that Suzuki is offering. Turn indicators continue to be conventional bulbs. Instrumentation is a fully digital affair with read-outs like two trip meters and real-time fuel efficiency being shown. Single-channel ABS ensures safety when panic braking. "
+    },
+    {
+        "title": "Honda CDR",
+        "cc": "130",
+        "milez": "45",
+        "price": 225000,
+        "type": "home",
+        "img": "https://i.ibb.co/k0J3tjQ/3-63.jpg",
+        "deatails": "The All-New Gixxer SF 155, from the makers of Hayabusa and GSX-R, comes the latest from a lineage of legends. The generational update makes the Suzuki Gixxer SF look more premium and sportier than before. It gets edgier styling, clip-on handlebars, and a split seat to complete the effect. The Suzuki Gixxer SF has impressive quality and fit and finish level"
+    },
+    {
+        "title": "Yamaha G72",
+        "cc": "160",
+        "milez": "50",
+        "price": 195000,
+        "type": "home",
+        "img": "https://i.ibb.co/5cjjbdd/suzuki-gs150r.jpg",
+        "deatails": "It gets edgier styling, clip-on handlebars, and a split seat to complete the effect. The Suzuki Gixxer SF has impressive quality and fit and finish levels. It comes in three colors: Glass Sparkle Black, Mira Red, and the 100 Years Anniversary Edition comes with Solitary Silver - Triton Blue. The price of Gixxer"
+    },
+    {
+        "title": "Honda J12",
+        "cc": "170",
+        "milez": "55",
+        "price": 212000,
+        "type": "home",
+        "img": "https://i.ibb.co/prbM8dv/e1af5f5d11fee29213a6667c9d1bbc13.jpg",
+        "deatails": "Hayabusa and GSX-R, comes the latest from a lineage of legends. The generational update makes the Suzuki Gixxer SF look more premium and sportier than before. It gets edgier styling, clip-on handlebars, and a split seat to complete the effect. The Suzuki Gixxer SF has impressive quality and fit and finish levels"
+    },
+    {
+        "title": "Suzuki FZ v-02",
+        "cc": "170",
+        "milez": "25",
+        "price": 285000,
+        "type": "home",
+        "img": "https://i.ibb.co/tYFJz4K/hqdefault.jpg",
+        "deatails": "The new BURGMAN STREET packs in a 125cc, 4-stroke air-cooled engine with SOHC 2 valve single-cylinder BS-IV Engine (8.7ps@7000rpm, 10.2Nm@5000 rpm); and is powered by the cutting edge SEP (Suzuki Eco Performance) technology, that offers an optimal fuel-efficiency without compromising on either power or performance. The CBS on new BURGMAN STREET enables operation of both brakes from the left brake leve"
+    },
+    {
+        "title": "Honda R15 v-02",
+        "cc": "160",
+        "milez": "35",
+        "price": 295000,
+        "type": "all",
+        "img": "https://i.ibb.co/NZ8NbMg/1026ee56382d6fa936fb346546756aca.jpg",
+        "deatails": " BURGMAN STREET’s luxurious design follows the Suzuki European style design that gives BURGMAN STREET its premium looks. A bright LED headlight, position lamp and tail lamp set-up further reflects its premium aspect, the chrome accent on front and rear body parts reflect the premium aspect of the scooter which compliments the overall design by giving it a striking visual presence."
+    },
+    {
+        "title": "Yamaha Nazo v-02",
+        "cc": "140",
+        "milez": "55",
+        "price": 212000,
+        "type": "all",
+        "img": "https://i.ibb.co/QbyQY10/Top-10-Ten-Touring-Bikes-2021-05.jpg",
+        "deatails": "SOHC 2 valve single-cylinder BS-IV Engine (8.7ps@7000rpm, 10.2Nm@5000 rpm); and is powered by the cutting edge SEP (Suzuki Eco Performance) technology, that offers an optimal fuel-efficiency without compromising on either power or performance. The CBS on new BURGMAN STREET enables operation of both brakes from the left brake lever, helping"
+    },
+    {
+        "title": "Honda ZX v-04",
+        "cc": "150",
+        "milez": "55",
+        "price": 212000,
+        "type": "all",
+        "img": "https://i.ibb.co/K6zSnnv/history-of-honda-motorcycles.jpg",
+        "deatails": "The CBS on new BURGMAN STREET enables operation of both brakes from the left brake lever, helping in maintaining a good balance between front and rear brake forces. BURGMAN STREET’s luxurious design follows the Suzuki European style design that gives BURGMAN STREET its premium looks. A bright LED headlight, position lamp and tail lamp set-up further reflects"
+    },
+    {
+        "title": "Yamaha ZX v-04",
+        "cc": "125",
+        "milez": "65",
+        "price": 125000,
+        "type": "all",
+        "img": "https://i.ibb.co/DgGLD2Y/unnamed.jpg",
+        "deatails": "The Suzuki Access 125 Fi is here to fulfill your wishes. With its world-class features and exciting color options, it is ready to take your lifestyle to a brand-new level of excitement. This wonderful blend of power and style will surely leave you surprised. It comes with Access 125 Disc Version. "
+    }
+]
