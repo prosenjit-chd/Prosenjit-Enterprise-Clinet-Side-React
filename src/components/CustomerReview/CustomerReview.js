@@ -18,7 +18,7 @@ const CustomerReview = () => {
     const startRef = useRef('');
     const descriptionRef = useRef('');
     useEffect(() => {
-        axios.get(`http://localhost:5000/bikescollection/${id}`)
+        axios.get(`https://arcane-plains-11484.herokuapp.com/bikescollection/${id}`)
             .then(res => setEvent(res.data))
     }, [])
 
@@ -36,7 +36,7 @@ const CustomerReview = () => {
         const start = startRef.current.value;
         const description = descriptionRef.current.value;
         const data = { name, email, photo, title, deatails, img, date, start, description, status }
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://arcane-plains-11484.herokuapp.com/reviews', data)
             .then(res => {
                 swal({
                     title: "Thank you Sir",

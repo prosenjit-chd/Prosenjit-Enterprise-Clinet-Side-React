@@ -10,7 +10,7 @@ const Managebike = () => {
     const [events, setEvents] = useState([]);
     // Use Effect use here for fetching data 
     useEffect(() => {
-        axios.get('http://localhost:5000/bikescollection')
+        axios.get('https://arcane-plains-11484.herokuapp.com/bikescollection')
             .then(res => setEvents(res.data.bikes))
     }, [])
 
@@ -25,7 +25,7 @@ const Managebike = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`http://localhost:5000/bikescollection/${id}`)
+                    axios.delete(`https://arcane-plains-11484.herokuapp.com/bikescollection/${id}`)
                         .then(res => {
                             const remainingEvents = events.filter(e => e._id !== id);
                             setEvents(remainingEvents);
@@ -69,7 +69,7 @@ const Managebike = () => {
                                         {
                                             events.map((e, i) => <tr>
                                                 <td>{i + 1}</td>
-                                                <td><img style= {{height: "80px", textAlign: "center"}} className="img-fluid" src={e.img} alt="bike"/></td>
+                                                <td><img style={{ height: "80px", textAlign: "center" }} className="img-fluid" src={e.img} alt="bike" /></td>
                                                 <td>{e.title}</td>
                                                 <td>{e.price}</td>
                                                 <td>{e.cc}</td>

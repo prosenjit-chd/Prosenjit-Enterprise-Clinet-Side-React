@@ -21,14 +21,14 @@ const Home = () => {
 
     // Bikes Data fetching
     useEffect(() => {
-        fetch('http://localhost:5000/bikescollection')
+        fetch('https://arcane-plains-11484.herokuapp.com/bikescollection')
             .then(res => res.json())
             .then(data => handleFeatured(data.bikes))
     }, []);
 
     // Review Data fetching
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://arcane-plains-11484.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReview(data.review))
     }, []);
@@ -80,7 +80,7 @@ const Home = () => {
                     />
                     <Carousel.Caption>
                         {/* <h3 className="text-primary">Fast and Comfortable</h3> */}
-                        <Link className="nav-link" to="/bikes"><button type="button" class="btn btn-primary">Explore New</button></Link>
+                        <Link className="nav-link" to="/bikes"><button type="button" className="btn btn-primary">Explore New</button></Link>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -92,7 +92,7 @@ const Home = () => {
 
                     <Carousel.Caption>
                         {/* <h3 className="text-primary">Hydrolic Break</h3> */}
-                        <Link className="nav-link" to="/bikes"><button type="button" class="btn btn-primary">Explore New</button></Link>
+                        <Link className="nav-link" to="/bikes"><button type="button" className="btn btn-primary">Explore New</button></Link>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -104,7 +104,7 @@ const Home = () => {
 
                     <Carousel.Caption>
                         {/* <h3>1000+ Showrooms</h3> */}
-                        <Link className="nav-link" to="/bikes"><button type="button" class="btn btn-primary">Explore New</button></Link>
+                        <Link className="nav-link" to="/bikes"><button type="button" className="btn btn-primary">Explore New</button></Link>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
@@ -171,9 +171,9 @@ const Home = () => {
             </Container>
 
             {/* Happy Client Section */}
-            <section class="mt-5">
+            <section className="mt-5">
                 <Container style={{ "marginTop": "80px" }}>
-                    <h1 class="mb-5">Happy <span class="customer-review-tittle">Clients says</span></h1>
+                    <h1 className="mb-5">Happy <span className="customer-review-tittle">Clients says</span></h1>
                     <Slider {...settings}>
                         {
                             review.map(r => <ShowReview key={r.id} r={r} />)

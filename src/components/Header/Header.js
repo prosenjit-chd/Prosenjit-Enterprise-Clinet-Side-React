@@ -14,7 +14,7 @@ const Header = () => {
         borderBottom: "solid 2px #165aee"
     }
     // use auth use here 
-    const { user, logOut } = useAuth();
+    const { user, logOut, admin } = useAuth();
 
     return (
         <>
@@ -33,21 +33,24 @@ const Header = () => {
                                     <div>
                                         <img style={{ height: 30, width: 30, borderRadius: "50%" }} src={user.photoURL || userphoto} alt="user" />
                                         <span> {user.displayName}</span>
+                                        {!admin ?
+                                            <DropdownButton variant="primary" className="d-inline ms-3 me-3 mx-auto text-bold" id="dropdown-basic-button" title="User Dashboard">
+                                                <NavLink className="nav-link" activeStyle={activeStyle} to="/myorders"><BagCheckFill className="me-1" /> My Orders</NavLink>
+                                                <NavLink className="nav-link" activeStyle={activeStyle} to="/customerreview"><PlusSquareFill className="me-1" /> Add Review</NavLink>
+                                                <NavLink className="nav-link" activeStyle={activeStyle} to="/payment"><Coin className="me-1" /> Payment</NavLink>
+                                                <Button className="ms-2" onClick={logOut} variant="danger"><BoxArrowInLeft className="me-1" /> LogOut</Button>
+                                            </DropdownButton>
+                                            :
 
-                                        <DropdownButton variant="primary" className="d-inline ms-3 me-3 mx-auto text-bold" id="dropdown-basic-button"  title="User Dashboard">
-                                            <NavLink className="nav-link" activeStyle={activeStyle} to="/myorders"><BagCheckFill className="me-1" /> My Orders</NavLink>
-                                            <NavLink className="nav-link" activeStyle={activeStyle} to="/customerreview"><PlusSquareFill className="me-1" /> Add Review</NavLink>
-                                            <NavLink className="nav-link" activeStyle={activeStyle} to="/payment"><Coin className="me-1" /> Payment</NavLink>
-                                            <Button className="ms-2" onClick={logOut} variant="danger"><BoxArrowInLeft className="me-1" /> LogOut</Button>
-                                        </DropdownButton>
+                                            <DropdownButton variant="info" className="d-inline ms-3 me-3 mx-auto" id="dropdown-basic-button" title="@ Admin Portal">
+                                                <NavLink className="nav-link" activeStyle={activeStyle} to="/allorders"><Basket2Fill className="me-1" /> Orders</NavLink>
+                                                <NavLink className="nav-link" activeStyle={activeStyle} to="/addadmin"><PersonPlusFill className="me-1" /> Add Admin</NavLink>
+                                                <NavLink className="nav-link" activeStyle={activeStyle} to="/addbike"><NodePlusFill className="me-1" /> Add Bikes</NavLink>
+                                                <NavLink className="nav-link" activeStyle={activeStyle} to="/managebike"><ArrowsMove className="me-1" /> Bikes</NavLink>
+                                                <Button className="ms-2" onClick={logOut} variant="danger"><BoxArrowInLeft className="me-1 mt-1" /> LogOut</Button>
+                                            </DropdownButton>
 
-                                        <DropdownButton variant="info" className="d-inline ms-3 me-3 mx-auto" id="dropdown-basic-button" title="@ Admin Portal">
-                                            <NavLink className="nav-link" activeStyle={activeStyle} to="/allorders"><Basket2Fill className="me-1"/> Orders</NavLink>
-                                            <NavLink className="nav-link" activeStyle={activeStyle} to="/addadmin"><PersonPlusFill className="me-1"/> Add Admin</NavLink>
-                                            <NavLink className="nav-link" activeStyle={activeStyle} to="/addbike"><NodePlusFill className="me-1"/> Add Bikes</NavLink>
-                                            <NavLink className="nav-link" activeStyle={activeStyle} to="/managebike"><ArrowsMove className="me-1"/> Bikes</NavLink>
-                                            <Button className="ms-2" onClick={logOut} variant="danger"><BoxArrowInLeft className="me-1 mt-1" /> LogOut</Button>
-                                        </DropdownButton>
+                                        }
 
                                     </div>
                                     :

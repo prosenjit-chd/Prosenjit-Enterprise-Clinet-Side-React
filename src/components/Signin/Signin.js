@@ -11,7 +11,7 @@ const Signin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { signInUsingGoogle, processLogin, setIsLoading, error, setError } = useAuth();
+    const { signInUsingGoogle, processLogin, setIsLoading, error, setError, saveUser } = useAuth();
     const location = useLocation();
     const history = useHistory();
     const redirect_url = location.state?.from || '/home';
@@ -19,6 +19,8 @@ const Signin = () => {
     const handleGoogleSignIn = () => {
         signInUsingGoogle()
             .then(result => {
+                const {email, displayName} = result.user;
+                saveUser(email, displayName, 'put');
                 history.push(redirect_url)
             })
             .finally(() => {

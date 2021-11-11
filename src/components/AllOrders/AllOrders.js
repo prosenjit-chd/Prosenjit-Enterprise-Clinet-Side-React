@@ -14,7 +14,7 @@ const AllOrders = () => {
     let updateUser = {};
     // Use Effect use here for fetching data 
     useEffect(() => {
-        axios.get('http://localhost:5000/orders')
+        axios.get('https://arcane-plains-11484.herokuapp.com/orders')
             .then(res => setEvents(res.data))
     }, [updateUser])
 
@@ -29,7 +29,7 @@ const AllOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`http://localhost:5000/orders/${id}`)
+                    axios.delete(`https://arcane-plains-11484.herokuapp.com/orders/${id}`)
                         .then(res => {
                             const remainingEvents = events.filter(e => e._id !== id);
                             setEvents(remainingEvents);
@@ -48,7 +48,7 @@ const AllOrders = () => {
     const handleUserStatus = (id) => {
         updateUser = events.find(event => event._id === id)
         updateUser.status = !updateUser.status;
-        axios.put(`http://localhost:5000/orders/${id}`, updateUser)
+        axios.put(`https://arcane-plains-11484.herokuapp.com/orders/${id}`, updateUser)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     swal({

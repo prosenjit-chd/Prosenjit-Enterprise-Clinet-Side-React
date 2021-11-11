@@ -14,7 +14,7 @@ const MyOrders = () => {
     // Use UseState here 
     const [myEvents, setMyEvents] = useState([]);
     useEffect(() => {
-        axios.get('http://localhost:5000/orders/')
+        axios.get('https://arcane-plains-11484.herokuapp.com/orders/')
             .then(res => filterMyEvent(res.data))
     }, [])
 
@@ -35,7 +35,7 @@ const MyOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`http://localhost:5000/users/${id}`)
+                    axios.delete(`https://arcane-plains-11484.herokuapp.com/orders/${id}`)
                         .then(res => {
                             const remainingEvents = myEvents.filter(e => e._id !== id);
                             setMyEvents(remainingEvents);

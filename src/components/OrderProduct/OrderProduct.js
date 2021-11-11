@@ -19,7 +19,7 @@ const OrderProduct = () => {
     const phoneRef = useRef('');
     const addressRef = useRef('');
     useEffect(() => {
-        axios.get(`http://localhost:5000/bikescollection/${id}`)
+        axios.get(`https://arcane-plains-11484.herokuapp.com/bikescollection/${id}`)
             .then(res => setEvent(res.data))
     }, [])
 
@@ -35,8 +35,8 @@ const OrderProduct = () => {
         const date = dateRef.current.value;
         const phone = phoneRef.current.value;
         const address = addressRef.current.value;
-        const data = { name, email, title,  deatails, img, date, phone, address, status }
-        axios.post('http://localhost:5000/orders', data)
+        const data = { name, email, title, deatails, img, date, phone, address, status }
+        axios.post('https://arcane-plains-11484.herokuapp.com/orders', data)
             .then(res => {
                 swal({
                     title: "Thank you Sir",

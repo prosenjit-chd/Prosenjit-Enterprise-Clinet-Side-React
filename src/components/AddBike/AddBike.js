@@ -25,7 +25,7 @@ const AddBike = () => {
         const deatails = deatailsRef.current.value;
         const img = imgRef.current.value;
         const data = { title, price, cc, milez, deatails, img }
-        axios.post('http://localhost:5000/bikescollection', data)
+        axios.post('https://arcane-plains-11484.herokuapp.com/bikescollection', data)
             .then(res => {
                 swal({
                     title: "Thank you Sir",

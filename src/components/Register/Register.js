@@ -32,10 +32,6 @@ const Register = () => {
             setError('Password Must be at least 6 characters long.')
             return;
         }
-        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setError('Password Must contain 2 upper case');
-            return;
-        }
         else {
             registerNewUser(email, password, name);
             history.push("/signin");
@@ -72,10 +68,6 @@ const Register = () => {
                             <br />
                             <Link className="text-center" to="/signin">Already Have Account? SignIN</Link>
                             <hr />
-                            <p className="text-center">.........OR...........</p>
-                            <Button className="text-light" variant="primary">
-                                <Google /> <span className="fw-bold">Sign In With Google</span>
-                            </Button>
                         </div>
                     </Form>
                     <p className="text-danger">{error}</p>

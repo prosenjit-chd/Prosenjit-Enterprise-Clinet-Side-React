@@ -19,68 +19,68 @@ import AddBike from './components/AddBike/AddBike';
 import AllOrders from './components/AllOrders/AllOrders';
 import MakeAdmin from './components/MakeAdmin/MakeAdmin';
 import Managebike from './components/Managebike/Managebike';
+import AdminRoute from './components/AdminRoute/AdminRoute';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
-      <BrowserRouter>
-        <Header></Header>
+        <BrowserRouter>
+          <Header></Header>
 
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route path="/aboutus">
-            <About> </About>
-          </Route>
-          <Route path="/signin">
-            <Signin></Signin>
-          </Route>
-          <Route path="/register">
-            <Register></Register>
-          </Route>
-          <Route path="/bikes">
-            <Bikes> </Bikes>
-          </Route>
-          <Route path="/payment">
-            <Payment></Payment>
-          </Route>
-          <Route path="/customerreview">
-            <CustomerReview> </CustomerReview>
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route path="/aboutus">
+              <About> </About>
+            </Route>
+            <Route path="/signin">
+              <Signin></Signin>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
+            <Route path="/bikes">
+              <Bikes> </Bikes>
+            </Route>
 
-          <Route path="/addbike">
-            <AddBike> </AddBike>
-          </Route>
-          <Route path="/allorders">
-            <AllOrders> </AllOrders>
-          </Route>
-          <Route path="/addadmin">
-            <MakeAdmin> </MakeAdmin>
-          </Route>
-          <Route path="/managebike">
-            <Managebike> </Managebike>
-          </Route>
+            <AdminRoute path="/addbike">
+              <AddBike> </AddBike>
+            </AdminRoute>
+            <AdminRoute path="/allorders">
+              <AllOrders> </AllOrders>
+            </AdminRoute>
+            <AdminRoute path="/addadmin">
+              <MakeAdmin> </MakeAdmin>
+            </AdminRoute>
+            <AdminRoute path="/managebike">
+              <Managebike> </Managebike>
+            </AdminRoute>
 
+            <PrivateRoute path="/payment">
+              <Payment></Payment>
+            </PrivateRoute>
+            <PrivateRoute path="/customerreview">
+              <CustomerReview> </CustomerReview>
+            </PrivateRoute>
+            <PrivateRoute path="/orderproducts/:id">
+              <OrderProduct></OrderProduct>
+            </PrivateRoute>
+            <PrivateRoute path="/myorders">
+              <MyOrders> </MyOrders>
+            </PrivateRoute>
 
-          <PrivateRoute path="/orderproducts/:id">
-            <OrderProduct></OrderProduct>
-          </PrivateRoute>
-          <PrivateRoute path="/myorders">
-            <MyOrders> </MyOrders>
-          </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
+          </Switch>
 
-          <Route path="*">
-            <NotFound></NotFound>
-          </Route>
-        </Switch>
-
-        <Footer></Footer>
-      </BrowserRouter>
+          <Footer></Footer>
+        </BrowserRouter>
       </AuthProvider>
     </div>
   );
