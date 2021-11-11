@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import Bike from '../Bike/Bike';
 import ShowReview from '../ShowReview/ShowReview';
 import './Home.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
 
 const Home = () => {
     // Use State declear here 
@@ -29,6 +32,41 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setReview(data.review))
     }, []);
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
 
     return (
         <div>
@@ -133,15 +171,15 @@ const Home = () => {
             </Container>
 
             {/* Happy Client Section */}
-            <section class="mt-5">                   
-                    <Container style={{ "marginTop": "80px" }}>
+            <section class="mt-5">
+                <Container style={{ "marginTop": "80px" }}>
                     <h1 class="mb-5">Happy <span class="customer-review-tittle">Clients says</span></h1>
-                        <Row xs={1} md={2} lg={3} className="g-4">
-                            {
-                                review.map(r => <ShowReview key={r.id} r={r} />)
-                            }
-                        </Row>
-                    </Container>
+                    <Slider {...settings}>
+                        {
+                            review.map(r => <ShowReview key={r.id} r={r} />)
+                        }
+                    </Slider>
+                </Container>
             </section>
         </div>
     );

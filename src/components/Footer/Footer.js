@@ -16,7 +16,7 @@ const Footer = () => {
                                 <div className="shop-departments">
                                     <ul>
                                         <li>
-                                            <h5>Our Agrement Country</h5>
+                                            <h5>Our Agents Country</h5>
                                         </li>
                                         <li>India</li>
                                         <li>Nepal</li>
@@ -31,10 +31,10 @@ const Footer = () => {
                                 <div className="account-shipping-info">
                                     <ul>
                                         <li>
-                                            <h5>Account & journey info</h5>
+                                            <h5>Bike & Price info</h5>
                                         </li>
-                                        <li>Your account</li>
-                                        <li>Travell rates & policies</li>
+                                        <li>Your Bike</li>
+                                        <li>Bike rates & policies</li>
                                         <li>Refunds & replacements</li>
                                     </ul>
                                 </div>

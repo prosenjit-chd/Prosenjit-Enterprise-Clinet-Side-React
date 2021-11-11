@@ -40,14 +40,14 @@ const AddBike = () => {
         <div>
             <Container>
                 <Row>
-                    <Col lg="12 w-50 mx-auto">
+                    <Col lg="12 w-75 mx-auto">
                         {/* Event information taking form */}
                         <Form onSubmit={handleEvent} className=" border border-2 p-4 bg-light shadow">
                             <h3 className="text-primary mb-3">Add More Bike</h3>
                             <Row className="mb-3">
                                 <Form.Group as={Col} controlId="formGridEmail">
                                     <Form.Label>Bike Name</Form.Label>
-                                    <Form.Control ref={titleRef} type="text" placeholder="Coxbazar sea beach" />
+                                    <Form.Control ref={titleRef} type="text" placeholder="Hero Honda 125" />
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="formGridPassword">
@@ -73,7 +73,7 @@ const AddBike = () => {
                                 </Form.Group>
 
                                 <Form.Group as={Col} controlId="formGridState">
-                                    <Form.Label>Milez</Form.Label>
+                                    <Form.Label>Mileage</Form.Label>
                                     <Form.Control ref={milezRef} type="text" placeholder="40" />
                                 </Form.Group>
                             </Row>

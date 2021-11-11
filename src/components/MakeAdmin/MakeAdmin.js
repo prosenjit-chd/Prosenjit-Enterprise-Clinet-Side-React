@@ -7,7 +7,7 @@ const MakeAdmin = () => {
         <div>
             <Container>
                 <Row>
-                    <Col lg="12 w-50 mx-auto">
+                    <Col lg="12 w-75 mx-auto">
                         {/* Event information taking form */}
                         <Form className=" border border-2 p-4 bg-light shadow">
                             <h3 className="text-primary mb-3">Add Admin</h3>

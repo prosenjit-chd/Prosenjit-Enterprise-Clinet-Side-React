@@ -15,7 +15,7 @@ const Bike = (props) => {
         return (
             <div>
                 <Col>
-                    <Card className="h-100 bg-light p-2 shadow">
+                    <Card className="h-100 bg-light p-2 shadow-sm border-0">
                         <Card.Img variant="top" src={img} className="card-img img-fluid" />
                         <Card.Body>
                             <Card.Title className="card-title" style={{ color: "#e6520e" }}>{title}</Card.Title>
