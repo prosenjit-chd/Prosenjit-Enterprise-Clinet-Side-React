@@ -2,6 +2,7 @@ import React from 'react';
 import { StarFill } from 'react-bootstrap-icons';
 import './ShowReview.css';
 import userphoto from '../../img/user.png';
+import StarRatings from 'react-star-ratings';
 
 const ShowReview = (props) => {
     const { name, email, photo, start, description } = props.r;
@@ -12,7 +13,13 @@ const ShowReview = (props) => {
                 <div className="card-body">
                     <div className="card-info-details text-center">
                         <p className="card-text text-center">{description.slice(0, 18)}</p>
-                        <div className="">
+                        <StarRatings
+                            rating={parseFloat(start)}
+                            starDimension="20px"
+                            starRatedColor="#E77C40"
+                            starSpacing="2px"
+                        />
+                        {/* <div className="">
                             {start}
                             <StarFill style={{ color: "#E77C40" }} />
                             <StarFill style={{ color: "#E77C40" }} />
@@ -20,7 +27,7 @@ const ShowReview = (props) => {
                             <StarFill style={{ color: "#E77C40" }} />
                             <StarFill style={{ color: "#E77C40" }} />
 
-                        </div>
+                        </div> */}
                         <h5 className="user-name">{name}</h5>
                     </div>
                 </div>

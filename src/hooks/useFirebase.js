@@ -25,13 +25,19 @@ const useFirebase = () => {
     // observe user state change
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, user => {
+            setIsLoading(true);
             if (user) {
                 setUser(user);
+                fetch(`https://arcane-plains-11484.herokuapp.com/users/${user.email}`)
+                    .then(res => res.json())
+                    .then(data => setAdmin(data.admin))
+                    .then(() => setIsLoading(false))
             }
             else {
                 setUser({})
+                setIsLoading(false);
             }
-            setIsLoading(false);
+            // setIsLoading(false);
         });
         return () => unsubscribed;
     }, [])
@@ -77,9 +83,7 @@ const useFirebase = () => {
 
     // set Admin
     useEffect(() => {
-        fetch(`https://arcane-plains-11484.herokuapp.com/users/${user.email}`)
-            .then(res => res.json())
-            .then(data => setAdmin(data.admin))
+
     }, [user.email])
 
     const saveUser = (email, displayName, method) => {

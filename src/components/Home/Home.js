@@ -62,7 +62,9 @@ const Home = () => {
                 breakpoint: 576,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    dots: false,
+                    arrows: false
                 }
             }
         ]
@@ -80,7 +82,7 @@ const Home = () => {
                     />
                     <Carousel.Caption>
                         {/* <h3 className="text-primary">Fast and Comfortable</h3> */}
-                        <Link className="nav-link" to="/bikes"><button type="button" className="btn btn-primary">Explore New</button></Link>
+                        <Link className="nav-link" to="/bikes"><button type="button" className="btn btn-primary">Explore Now</button></Link>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -92,7 +94,7 @@ const Home = () => {
 
                     <Carousel.Caption>
                         {/* <h3 className="text-primary">Hydrolic Break</h3> */}
-                        <Link className="nav-link" to="/bikes"><button type="button" className="btn btn-primary">Explore New</button></Link>
+                        <Link className="nav-link" to="/bikes"><button type="button" className="btn btn-primary">Explore Now</button></Link>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -104,7 +106,7 @@ const Home = () => {
 
                     <Carousel.Caption>
                         {/* <h3>1000+ Showrooms</h3> */}
-                        <Link className="nav-link" to="/bikes"><button type="button" className="btn btn-primary">Explore New</button></Link>
+                        <Link className="nav-link" to="/bikes"><button type="button" className="btn btn-primary">Explore Now</button></Link>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

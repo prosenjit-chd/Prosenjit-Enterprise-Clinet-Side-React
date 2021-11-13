@@ -1,5 +1,6 @@
 import Dropdown from '@restart/ui/esm/Dropdown';
 import React from 'react';
+import { useHistory } from 'react-router';
 import { Container, Nav, Navbar, Button, DropdownButton } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
@@ -8,13 +9,21 @@ import userphoto from '../../img/user.png';
 import { ArrowsMove, BagCheckFill, Basket2Fill, BoxArrowInLeft, Coin, NodePlusFill, PersonPlusFill, PlusSquareFill } from 'react-bootstrap-icons';
 
 const Header = () => {
+    const { user, logOut, admin } = useAuth();
+    const history = useHistory();
+
     const activeStyle = {
         fontWeight: "bold",
         color: "#165aee",
         borderBottom: "solid 2px #165aee"
     }
+
+    const signout = () => {
+        history.push('/home')
+        logOut();
+    }
     // use auth use here 
-    const { user, logOut, admin } = useAuth();
+    
 
     return (
         <>
@@ -26,8 +35,9 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto fw-bold">
                             <NavLink className="nav-link" activeStyle={activeStyle} to="home">Home</NavLink>
+                            <NavLink className="nav-link" activeStyle={activeStyle} to="/bikes">Bikes</NavLink>
                             <NavLink className="nav-link" activeStyle={activeStyle} to="/aboutus">About Us</NavLink>
-                            <NavLink className="nav-link" activeStyle={activeStyle} to="/bikes">Explore more</NavLink>
+
                             {
                                 user?.email ?
                                     <div>
@@ -38,7 +48,7 @@ const Header = () => {
                                                 <NavLink className="nav-link" activeStyle={activeStyle} to="/myorders"><BagCheckFill className="me-1" /> My Orders</NavLink>
                                                 <NavLink className="nav-link" activeStyle={activeStyle} to="/customerreview"><PlusSquareFill className="me-1" /> Add Review</NavLink>
                                                 <NavLink className="nav-link" activeStyle={activeStyle} to="/payment"><Coin className="me-1" /> Payment</NavLink>
-                                                <Button className="ms-2" onClick={logOut} variant="danger"><BoxArrowInLeft className="me-1" /> LogOut</Button>
+                                                <Button className="ms-2" onClick={signout} variant="danger"><BoxArrowInLeft className="me-1" /> LogOut</Button>
                                             </DropdownButton>
                                             :
 
@@ -47,7 +57,7 @@ const Header = () => {
                                                 <NavLink className="nav-link" activeStyle={activeStyle} to="/addadmin"><PersonPlusFill className="me-1" /> Add Admin</NavLink>
                                                 <NavLink className="nav-link" activeStyle={activeStyle} to="/addbike"><NodePlusFill className="me-1" /> Add Bikes</NavLink>
                                                 <NavLink className="nav-link" activeStyle={activeStyle} to="/managebike"><ArrowsMove className="me-1" /> Bikes</NavLink>
-                                                <Button className="ms-2" onClick={logOut} variant="danger"><BoxArrowInLeft className="me-1 mt-1" /> LogOut</Button>
+                                                <Button className="ms-2" onClick={signout} variant="danger"><BoxArrowInLeft className="me-1 mt-1" /> LogOut</Button>
                                             </DropdownButton>
 
                                         }

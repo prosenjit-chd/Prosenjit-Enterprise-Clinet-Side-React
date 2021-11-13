@@ -18,11 +18,11 @@ const AllOrders = () => {
             .then(res => setEvents(res.data))
     }, [updateUser])
 
-    // Delete Tour event button handler 
+    // Delete Bike buy event button handler 
     const handleEventDelete = (id) => {
         swal({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this event!",
+            text: "Once deleted, you will not be able to recover this order!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -35,11 +35,11 @@ const AllOrders = () => {
                             setEvents(remainingEvents);
 
                         }).catch(err => console.log(err))
-                    swal("The tour event order has been deleted!", {
+                    swal("The order has been deleted!", {
                         icon: "success",
                     });
                 } else {
-                    swal("Your tour event order is safe!");
+                    swal("Your order is safe!");
                 }
             });
     }
@@ -53,7 +53,7 @@ const AllOrders = () => {
                 if (res.data.modifiedCount > 0) {
                     swal({
                         title: "Thank you Sir",
-                        text: "The tour status updated successfully",
+                        text: "The status updated successfully",
                         icon: "success",
                         button: "Go back!",
                     });
@@ -96,7 +96,7 @@ const AllOrders = () => {
                                                 <td>{e.email}</td>
                                                 <td>{e.date}</td>
                                                 <td>{e.title}</td>
-                                                <td className={!e.status ? "text-secondary" : "text-primary "} >{!e.status ? "Pending" : "Approved"}</td>
+                                                <td className={!e.status ? "text-secondary" : "text-primary "} >{!e.status ? "Pending" : "Shipped"}</td>
                                                 <td onClick={() => handleUserStatus(e._id)} className={!e.status ? "text-danger text-center" : "text-success text-center"} role="button"><CheckSquareFill /></td>
                                                 <td className="text-center text-danger" role="button" onClick={() => handleEventDelete(e._id)} > <ArchiveFill></ArchiveFill> </td>
                                             </tr>)

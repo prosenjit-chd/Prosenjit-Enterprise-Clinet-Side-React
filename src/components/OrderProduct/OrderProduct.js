@@ -40,7 +40,7 @@ const OrderProduct = () => {
             .then(res => {
                 swal({
                     title: "Thank you Sir",
-                    text: "You tour event added successfully",
+                    text: "You order added successfully",
                     icon: "success",
                     button: "Go back!",
                 });

@@ -20,6 +20,7 @@ import AllOrders from './components/AllOrders/AllOrders';
 import MakeAdmin from './components/MakeAdmin/MakeAdmin';
 import Managebike from './components/Managebike/Managebike';
 import AdminRoute from './components/AdminRoute/AdminRoute';
+import ScrollToTop from './hooks/ScrollToTop';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
         <BrowserRouter>
           <Header></Header>
 
+        <ScrollToTop>
+        </ScrollToTop>
           <Switch>
             <Route exact path="/">
               <Home></Home>

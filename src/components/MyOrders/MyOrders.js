@@ -24,11 +24,11 @@ const MyOrders = () => {
     }
 
 
-    // Delete Tour event button handler 
+    // Delete button handler 
     const handleEventDelete = (id) => {
         swal({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this event!",
+            text: "Once deleted, you will not be able to recover this order!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -40,11 +40,11 @@ const MyOrders = () => {
                             const remainingEvents = myEvents.filter(e => e._id !== id);
                             setMyEvents(remainingEvents);
                         }).catch(err => console.log(err))
-                    swal("Your tour event order has been deleted!", {
+                    swal("Your order has been deleted!", {
                         icon: "success",
                     });
                 } else {
-                    swal("Your tour event order is safe!");
+                    swal("Your order is safe!");
                 }
             });
 
@@ -65,7 +65,7 @@ const MyOrders = () => {
                                     <Card.Body className="text-center mt-5">
                                         <Card.Title>{e.title}</Card.Title>
                                         <Card.Text>
-                                            <b> Status: {!e.status ? "Pending" : "Approved"} </b>
+                                            <b> Status: {!e.status ? "Pending" : "Shipped"} </b>
                                         </Card.Text>
                                         <Card.Text>
                                             {e.phone}

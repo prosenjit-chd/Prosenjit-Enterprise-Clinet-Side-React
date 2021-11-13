@@ -14,11 +14,11 @@ const Managebike = () => {
             .then(res => setEvents(res.data.bikes))
     }, [])
 
-    // Delete Tour event button handler 
+    // Delete Order event button handler 
     const handleEventDelete = (id) => {
         swal({
             title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this event!",
+            text: "Once deleted, you will not be able to recover this order!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -31,11 +31,11 @@ const Managebike = () => {
                             setEvents(remainingEvents);
 
                         }).catch(err => console.log(err))
-                    swal("The tour event order has been deleted!", {
+                    swal("The order has been deleted!", {
                         icon: "success",
                     });
                 } else {
-                    swal("Your tour event order is safe!");
+                    swal("Your order is safe!");
                 }
             });
     }

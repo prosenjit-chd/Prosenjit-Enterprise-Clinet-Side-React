@@ -2,11 +2,16 @@ import React from 'react';
 import { Spinner } from 'react-bootstrap';
 import { Route, Redirect } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import ReactLoading from 'react-loading';
 
 
 const AdminRoute = ({ children, ...rest }) => {
     const { user, admin, isLoading } = useAuth();
-    if (isLoading) { return <Spinner animation="border" /> }
+    if (isLoading) {
+        return <div className="d-flex align-items-center justify-content-center" style={{ height: '80vh' }}>
+            <ReactLoading type={"spinningBubbles"} color={"#7ea0ff"} height={100} width={100} />
+        </div>
+    }
     return (
         <Route
             {...rest}
