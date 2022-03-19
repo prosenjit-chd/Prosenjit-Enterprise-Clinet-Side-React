@@ -10,8 +10,8 @@ const Managebike = () => {
     const [events, setEvents] = useState([]);
     // Use Effect use here for fetching data 
     useEffect(() => {
-        axios.get('https://arcane-plains-11484.herokuapp.com/bikescollection')
-            .then(res => setEvents(res.data.bikes))
+        axios.get('http://localhost:5000/api/products')
+            .then(res => setEvents(res.data.products))
     }, [])
 
     // Delete Order event button handler 
@@ -25,7 +25,7 @@ const Managebike = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`https://arcane-plains-11484.herokuapp.com/bikescollection/${id}`)
+                    axios.delete(`http://localhost:5000/api/products/${id}`)
                         .then(res => {
                             const remainingEvents = events.filter(e => e._id !== id);
                             setEvents(remainingEvents);

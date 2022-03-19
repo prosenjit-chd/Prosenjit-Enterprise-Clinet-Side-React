@@ -7,14 +7,22 @@ import { Card, Col, Container, Row, Table } from 'react-bootstrap';
 import { ArchiveFill, Calendar2DateFill, CheckSquareFill, GeoAltFill } from 'react-bootstrap-icons';
 import swal from 'sweetalert';
 import './AllOrders.css';
+import useAuth from '../../hooks/useAuth';
 
 const AllOrders = () => {
     // Use USe State here 
     const [events, setEvents] = useState([]);
+    const { user, token } = useAuth();
     let updateUser = {};
     // Use Effect use here for fetching data 
     useEffect(() => {
-        axios.get('https://arcane-plains-11484.herokuapp.com/orders')
+        const header = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
+            }
+        }
+        axios.get('http://localhost:5000/api/allorders', header)
             .then(res => setEvents(res.data))
     }, [updateUser])
 
@@ -29,7 +37,7 @@ const AllOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`https://arcane-plains-11484.herokuapp.com/orders/${id}`)
+                    axios.delete(`http://localhost:5000/api/orders/${id}`)
                         .then(res => {
                             const remainingEvents = events.filter(e => e._id !== id);
                             setEvents(remainingEvents);
@@ -48,9 +56,9 @@ const AllOrders = () => {
     const handleUserStatus = (id) => {
         updateUser = events.find(event => event._id === id)
         updateUser.status = !updateUser.status;
-        axios.put(`https://arcane-plains-11484.herokuapp.com/orders/${id}`, updateUser)
+        axios.patch(`http://localhost:5000/api/orders/${id}`, updateUser)
             .then(res => {
-                if (res.data.modifiedCount > 0) {
+                if (res > 0) {
                     swal({
                         title: "Thank you Sir",
                         text: "The status updated successfully",
@@ -92,10 +100,10 @@ const AllOrders = () => {
                                         {
                                             events.map((e, i) => <tr>
                                                 <td>{i + 1}</td>
-                                                <td>{e.name}</td>
-                                                <td>{e.email}</td>
-                                                <td>{e.date}</td>
-                                                <td>{e.title}</td>
+                                                <td>{e.owner.name}</td>
+                                                <td>{e.owner.email}</td>
+                                                <td>{new Date(e.createdAt).toLocaleDateString("en-US")}</td>
+                                                <td>{e.product.title}</td>
                                                 <td className={!e.status ? "text-secondary" : "text-primary "} >{!e.status ? "Pending" : "Shipped"}</td>
                                                 <td onClick={() => handleUserStatus(e._id)} className={!e.status ? "text-danger text-center" : "text-success text-center"} role="button"><CheckSquareFill /></td>
                                                 <td className="text-center text-danger" role="button" onClick={() => handleEventDelete(e._id)} > <ArchiveFill></ArchiveFill> </td>

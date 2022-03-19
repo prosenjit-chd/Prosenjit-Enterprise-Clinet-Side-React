@@ -12,9 +12,9 @@ const MakeAdmin = () => {
         e.preventDefault();
         const email = emailRef.current.value;
         const user = { email };
-        axios.put('https://arcane-plains-11484.herokuapp.com/users/admin', user)
+        axios.patch('http://localhost:5000/api/users/admin', user)
             .then(res => {
-                if (res.data.modifiedCount) {
+                if (res) {
                     alert("admin added")
                     e.target.reset();
                 }

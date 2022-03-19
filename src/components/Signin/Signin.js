@@ -16,18 +16,21 @@ const Signin = () => {
     const history = useHistory();
     const redirect_url = location.state?.from || '/home';
 
-    const handleGoogleSignIn = () => {
-        signInUsingGoogle()
-            .then(result => {
-                const {email, displayName} = result.user;
-                saveUser(email, displayName, 'put');
-                history.push(redirect_url)
-            })
-            .finally(() => {
-                setIsLoading(false);
-            });
-    }
+    // const handleGoogleSignIn = (location, history) => {
+    //     signInUsingGoogle()
+    //         .then(result => {
+    //             const { email, displayName } = result.user;
+    //             saveUser(email, displayName, 'put');
+    //             history.push(redirect_url)
+    //         })
+    //         .finally(() => {
+    //             setIsLoading(false);
+    //         });
+    // }
 
+    const handleGoogleSignIn = () => {
+        signInUsingGoogle(location, history)
+    }
     const handleEmailChange = e => {
         setEmail(e.target.value);
     }

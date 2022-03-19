@@ -12,9 +12,9 @@ const Bikes = () => {
 
     // Use Use Effect here 
     useEffect(() => {
-        fetch('https://arcane-plains-11484.herokuapp.com/bikescollection')
+        fetch('http://localhost:5000/api/products')
             .then(res => res.json())
-            .then(data => setService(data.bikes))
+            .then(data => setService(data.products))
     }, []);
     return (
         // Side Bar here 

@@ -19,13 +19,13 @@ const AddBike = () => {
     const handleEvent = (e) => {
         e.preventDefault();
         const title = titleRef.current.value;
-        const price = priceRef.current.value;
         const cc = ccRef.current.value;
         const milez = milezRef.current.value;
-        const deatails = deatailsRef.current.value;
+        const price = priceRef.current.value;
+        const type = deatailsRef.current.value;
         const img = imgRef.current.value;
-        const data = { title, price, cc, milez, deatails, img }
-        axios.post('https://arcane-plains-11484.herokuapp.com/bikescollection', data)
+        const data = { title, price, cc, milez, type, img }
+        axios.post('http://localhost:5000/api/products', data)
             .then(res => {
                 swal({
                     title: "Thank you Sir",
@@ -62,8 +62,8 @@ const AddBike = () => {
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formGridAddress2">
-                                <Form.Label>Short Description</Form.Label>
-                                <Form.Control ref={deatailsRef} type="text" placeholder="This 170 cc Bike" />
+                                <Form.Label>Bike Type</Form.Label>
+                                <Form.Control ref={deatailsRef} type="text" placeholder="home/all" />
                             </Form.Group>
 
                             <Row className="mb-3">

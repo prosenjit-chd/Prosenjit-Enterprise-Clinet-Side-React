@@ -10,18 +10,25 @@ import './MyOrders.css';
 
 const MyOrders = () => {
     // Use useAuth here 
-    const { user } = useAuth();
+    const { user, token } = useAuth();
     // Use UseState here 
     const [myEvents, setMyEvents] = useState([]);
+    // console.log(myEvents);
     useEffect(() => {
-        axios.get('https://arcane-plains-11484.herokuapp.com/orders/')
-            .then(res => filterMyEvent(res.data))
+        const header = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
+            }
+        }
+        axios.get('http://localhost:5000/api/orders', header)
+            .then(res => setMyEvents(res.data))
     }, [])
 
     // Filter user indivudiual data 
-    const filterMyEvent = (data) => {
-        setMyEvents(data.filter(event => event.email === user.email))
-    }
+    // const filterMyEvent = (data) => {
+    //     setMyEvents(data.filter(event => event.email === user.email))
+    // }
 
 
     // Delete button handler 
@@ -35,7 +42,7 @@ const MyOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`https://arcane-plains-11484.herokuapp.com/orders/${id}`)
+                    axios.delete(`http://localhost:5000/api/orders/${id}`)
                         .then(res => {
                             const remainingEvents = myEvents.filter(e => e._id !== id);
                             setMyEvents(remainingEvents);
@@ -55,15 +62,16 @@ const MyOrders = () => {
             <Row xs={1} md={2} lg={2} className="g-4 mb-4">
                 {/* Self tour card  */}
                 {
+
                     myEvents.map(e => <Col>
                         <Card className="border-0 bg-light p-4 h-100 shadow-lg rounded">
                             <Row>
                                 <Col lg="6">
-                                    <Card.Img variant="" className="img-fluid mx-auto" src={e.img} />
+                                    <Card.Img variant="" className="img-fluid mx-auto" src={e.product.img} />
                                 </Col>
                                 <Col lg="6">
                                     <Card.Body className="text-center mt-5">
-                                        <Card.Title>{e.title}</Card.Title>
+                                        <Card.Title>{e.product.title}</Card.Title>
                                         <Card.Text>
                                             <b> Status: {!e.status ? "Pending" : "Shipped"} </b>
                                         </Card.Text>
@@ -74,7 +82,7 @@ const MyOrders = () => {
                                             {e.address}
                                         </Card.Text>
                                         <Card.Text>
-                                            <b>{e.price}</b>
+                                            <b>{e.product.price}</b>
                                         </Card.Text>
                                         <Button onClick={() => handleEventDelete(e._id)} variant="danger">Cancle</Button>
                                     </Card.Body>

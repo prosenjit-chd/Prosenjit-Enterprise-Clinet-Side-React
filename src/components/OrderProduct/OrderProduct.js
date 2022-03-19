@@ -13,30 +13,38 @@ import './OrderProduct.css';
 const OrderProduct = () => {
     // Here Use useRef, UseAuth, UseParams, UseState 
     const { id } = useParams();
-    const [event, setEvent] = useState({});
-    const { user } = useAuth();
+    const [selectProduct, setSelectProduct] = useState({});
+    const { user, token } = useAuth();
     const dateRef = useRef('');
     const phoneRef = useRef('');
     const addressRef = useRef('');
+
     useEffect(() => {
-        axios.get(`https://arcane-plains-11484.herokuapp.com/bikescollection/${id}`)
-            .then(res => setEvent(res.data))
+        axios.get(`http://localhost:5000/api/products/${id}`)
+            .then(res => setSelectProduct(res.data))
     }, [])
 
     //Add Tour event button handler 
     const handleUser = (e) => {
         e.preventDefault();
-        const name = user.displayName;
-        const email = user.email;
-        const title = event.title;
-        const deatails = event.description;
-        const img = event.img;
-        const status = false;
-        const date = dateRef.current.value;
+        // const name = user.displayName;
+        // const email = user.email;
+        // const title = event.title;
+        // const deatails = event.description;
+        // const img = event.img;
+        // const status = false;
+        // const date = dateRef.current.value;
         const phone = phoneRef.current.value;
         const address = addressRef.current.value;
-        const data = { name, email, title, deatails, img, date, phone, address, status }
-        axios.post('https://arcane-plains-11484.herokuapp.com/orders', data)
+        const product = selectProduct._id;
+        const data = { phone, address, product }
+        const header = {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: 'Bearer ' + token
+            }
+        }
+        axios.post('http://localhost:5000/api/orders', data, header)
             .then(res => {
                 swal({
                     title: "Thank you Sir",
@@ -46,7 +54,7 @@ const OrderProduct = () => {
                 });
                 e.target.reset();
             })
-        console.log(data);
+        // console.log(data);
     }
 
     return (
@@ -54,9 +62,9 @@ const OrderProduct = () => {
             <Container>
                 <Row>
                     <Col lg="5" className="d-flex justify-content-between flex-column">
-                        <h3 className="text-primary">{event.title}</h3>
-                        <h5 className="text-dark">Cost Per Person: {event.price} BDT</h5 >
-                        <img className="img-fluid" src={event.img} alt="ad" />
+                        <h3 className="text-primary">{selectProduct.title}</h3>
+                        <h5 className="text-dark">Cost Per Person: {selectProduct.price} BDT</h5 >
+                        <img className="img-fluid" src={selectProduct.img} alt="ad" />
 
                     </Col>
 
@@ -64,14 +72,14 @@ const OrderProduct = () => {
                         <Form onSubmit={handleUser} className="w-100 mx-auto border border-1 p-5">
                             <h3 className="text-dark mb-3">Kindly, fillup the form carefully</h3>
                             <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control value={user.displayName} disabled className=" border border-2 border-top-0 border-start-0 border-end-0 mb-4" type="text" placeholder="Full Name" />
-                                <Form.Control value={user.email} disabled className=" border border-2 border-top-0 border-start-0 border-end-0 mb-4" type="email" placeholder="Username or Email" />
-                                <Form.Control ref={dateRef} className="border border-2 border-top-0 border-start-0 border-end-0 mb-4" type="date" placeholder="Date" />
+                                {/* <Form.Control value={user.displayName} disabled className=" border border-2 border-top-0 border-start-0 border-end-0 mb-4" type="text" placeholder="Full Name" /> */}
+                                {/* <Form.Control value={user.email} disabled className=" border border-2 border-top-0 border-start-0 border-end-0 mb-4" type="email" placeholder="Username or Email" /> */}
+                                {/* <Form.Control ref={dateRef} className="border border-2 border-top-0 border-start-0 border-end-0 mb-4" type="date" placeholder="Date" /> */}
                                 <Form.Control ref={phoneRef} className="border border-2 border-top-0 border-start-0 border-end-0 mb-4" type="text" placeholder="Mobile Number" />
                                 <Form.Control ref={addressRef} className="border border-2 border-top-0 border-start-0 border-end-0 mb-4" type="text" placeholder="Details Address" />
                             </Form.Group>
                             <Button variant="primary" type="submit" className="register-submit">
-                                Registration
+                                Order Now
                             </Button>
                         </Form>
                     </Col>

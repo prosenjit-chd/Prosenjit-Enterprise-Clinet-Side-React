@@ -21,16 +21,16 @@ const Home = () => {
 
     // Bikes Data fetching
     useEffect(() => {
-        fetch('https://arcane-plains-11484.herokuapp.com/bikescollection')
+        fetch('http://localhost:5000/api/products')
             .then(res => res.json())
-            .then(data => handleFeatured(data.bikes))
+            .then(data => handleFeatured(data.products))
     }, []);
 
     // Review Data fetching
     useEffect(() => {
-        fetch('https://arcane-plains-11484.herokuapp.com/reviews')
+        fetch('http://localhost:5000/api/reviews')
             .then(res => res.json())
-            .then(data => setReview(data.review))
+            .then(data => setReview(data))
     }, []);
 
     const settings = {

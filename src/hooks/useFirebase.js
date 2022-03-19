@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import initializeAuthentication from '../Firebase/firebase.init';
 import {
     getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged,
-    signOut, updateProfile, sendEmailVerification, createUserWithEmailAndPassword, signInWithEmailAndPassword
+    signOut, updateProfile, sendEmailVerification, createUserWithEmailAndPassword, signInWithEmailAndPassword, getIdToken
 } from "firebase/auth"
 import axios from 'axios';
 
@@ -13,13 +13,28 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState('');
     const [admin, setAdmin] = useState(false);
+    const [token, setToken] = useState('');
 
     const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
+    // const signInUsingGoogle = () => {
+    //     setIsLoading(true);
 
-    const signInUsingGoogle = () => {
+    //     return signInWithPopup(auth, googleProvider);
+    // }
+
+    const signInUsingGoogle = (location, history) => {
         setIsLoading(true);
-        const googleProvider = new GoogleAuthProvider();
-        return signInWithPopup(auth, googleProvider);
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                const user = result.user;
+                saveUser(user.email, user.displayName, user.photoURL, 'PATCH');
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+                setError('');
+            }).catch((error) => {
+                setError(error.message);
+            }).finally(() => setIsLoading(false));
     }
 
     // observe user state change
@@ -28,10 +43,15 @@ const useFirebase = () => {
             setIsLoading(true);
             if (user) {
                 setUser(user);
-                fetch(`https://arcane-plains-11484.herokuapp.com/users/${user.email}`)
+                fetch(`http://localhost:5000/api/users/${user.email}`)
                     .then(res => res.json())
                     .then(data => setAdmin(data.admin))
                     .then(() => setIsLoading(false))
+                getIdToken(user)
+                    .then(idToken => {
+                        // console.log(idToken)
+                        setToken(idToken);
+                    })
             }
             else {
                 setUser({})
@@ -86,11 +106,11 @@ const useFirebase = () => {
 
     }, [user.email])
 
-    const saveUser = (email, displayName, method) => {
-        const user = { email, displayName };
+    const saveUser = (email, name, photo = null, method) => {
+        const user = { email, name, photo };
         axios({
             method: method,
-            url: 'https://arcane-plains-11484.herokuapp.com/users',
+            url: 'http://localhost:5000/api/users',
             data: user
         });
     }
@@ -106,7 +126,8 @@ const useFirebase = () => {
         admin,
         registerNewUser,
         error,
-        setError
+        setError,
+        token
     };
 };
 
