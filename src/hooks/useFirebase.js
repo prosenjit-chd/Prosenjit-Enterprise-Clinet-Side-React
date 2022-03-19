@@ -43,7 +43,7 @@ const useFirebase = () => {
             setIsLoading(true);
             if (user) {
                 setUser(user);
-                fetch(`http://localhost:5000/api/users/${user.email}`)
+                fetch(`https://blooming-dusk-51251.herokuapp.com/api/users/${user.email}`)
                     .then(res => res.json())
                     .then(data => setAdmin(data.admin))
                     .then(() => setIsLoading(false))
@@ -110,7 +110,7 @@ const useFirebase = () => {
         const user = { email, name, photo };
         axios({
             method: method,
-            url: 'http://localhost:5000/api/users',
+            url: 'https://blooming-dusk-51251.herokuapp.com/api/users',
             data: user
         });
     }

@@ -21,14 +21,14 @@ const Home = () => {
 
     // Bikes Data fetching
     useEffect(() => {
-        fetch('http://localhost:5000/api/products')
+        fetch('https://blooming-dusk-51251.herokuapp.com/api/products')
             .then(res => res.json())
             .then(data => handleFeatured(data.products))
     }, []);
 
     // Review Data fetching
     useEffect(() => {
-        fetch('http://localhost:5000/api/reviews')
+        fetch('https://blooming-dusk-51251.herokuapp.com/api/reviews')
             .then(res => res.json())
             .then(data => setReview(data))
     }, []);

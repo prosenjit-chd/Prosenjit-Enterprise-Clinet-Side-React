@@ -22,7 +22,7 @@ const AllOrders = () => {
                 Authorization: 'Bearer ' + token
             }
         }
-        axios.get('http://localhost:5000/api/allorders', header)
+        axios.get('https://blooming-dusk-51251.herokuapp.com/api/allorders', header)
             .then(res => setEvents(res.data))
     }, [updateUser])
 
@@ -37,7 +37,7 @@ const AllOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`http://localhost:5000/api/orders/${id}`)
+                    axios.delete(`https://blooming-dusk-51251.herokuapp.com/api/orders/${id}`)
                         .then(res => {
                             const remainingEvents = events.filter(e => e._id !== id);
                             setEvents(remainingEvents);
@@ -56,7 +56,7 @@ const AllOrders = () => {
     const handleUserStatus = (id) => {
         updateUser = events.find(event => event._id === id)
         updateUser.status = !updateUser.status;
-        axios.patch(`http://localhost:5000/api/orders/${id}`, updateUser)
+        axios.patch(`https://blooming-dusk-51251.herokuapp.com/api/orders/${id}`, updateUser)
             .then(res => {
                 if (res > 0) {
                     swal({

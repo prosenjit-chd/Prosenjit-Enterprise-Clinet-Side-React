@@ -25,7 +25,7 @@ const AddBike = () => {
         const type = deatailsRef.current.value;
         const img = imgRef.current.value;
         const data = { title, price, cc, milez, type, img }
-        axios.post('http://localhost:5000/api/products', data)
+        axios.post('https://blooming-dusk-51251.herokuapp.com/api/products', data)
             .then(res => {
                 swal({
                     title: "Thank you Sir",

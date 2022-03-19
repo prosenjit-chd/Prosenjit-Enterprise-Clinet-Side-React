@@ -21,7 +21,7 @@ const MyOrders = () => {
                 Authorization: 'Bearer ' + token
             }
         }
-        axios.get('http://localhost:5000/api/orders', header)
+        axios.get('https://blooming-dusk-51251.herokuapp.com/api/orders', header)
             .then(res => setMyEvents(res.data))
     }, [])
 
@@ -42,7 +42,7 @@ const MyOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`http://localhost:5000/api/orders/${id}`)
+                    axios.delete(`https://blooming-dusk-51251.herokuapp.com/api/orders/${id}`)
                         .then(res => {
                             const remainingEvents = myEvents.filter(e => e._id !== id);
                             setMyEvents(remainingEvents);
