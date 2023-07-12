@@ -12,7 +12,7 @@ const Bikes = () => {
 
     // Use Use Effect here 
     useEffect(() => {
-        fetch('https://blooming-dusk-51251.herokuapp.com/api/products')
+        fetch('https://prosenjit-enterprise-server-side-node.onrender.com/api/products')
             .then(res => res.json())
             .then(data => setService(data.products))
     }, []);

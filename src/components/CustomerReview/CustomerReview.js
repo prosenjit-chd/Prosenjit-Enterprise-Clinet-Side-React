@@ -38,7 +38,7 @@ const CustomerReview = () => {
             }
         }
 
-        axios.post('https://blooming-dusk-51251.herokuapp.com/api/reviews', data, header)
+        axios.post('https://prosenjit-enterprise-server-side-node.onrender.com/api/reviews', data, header)
             .then(res => {
                 swal({
                     title: "Thank you Sir",

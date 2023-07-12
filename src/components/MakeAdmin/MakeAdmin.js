@@ -12,7 +12,7 @@ const MakeAdmin = () => {
         e.preventDefault();
         const email = emailRef.current.value;
         const user = { email };
-        axios.patch('https://blooming-dusk-51251.herokuapp.com/api/users/admin', user)
+        axios.patch('https://prosenjit-enterprise-server-side-node.onrender.com/api/users/admin', user)
             .then(res => {
                 if (res) {
                     alert("admin added")

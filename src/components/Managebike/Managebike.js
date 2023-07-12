@@ -10,7 +10,7 @@ const Managebike = () => {
     const [events, setEvents] = useState([]);
     // Use Effect use here for fetching data 
     useEffect(() => {
-        axios.get('https://blooming-dusk-51251.herokuapp.com/api/products')
+        axios.get('https://prosenjit-enterprise-server-side-node.onrender.com/api/products')
             .then(res => setEvents(res.data.products))
     }, [])
 
@@ -25,7 +25,7 @@ const Managebike = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    axios.delete(`https://blooming-dusk-51251.herokuapp.com/api/products/${id}`)
+                    axios.delete(`https://prosenjit-enterprise-server-side-node.onrender.com/api/products/${id}`)
                         .then(res => {
                             const remainingEvents = events.filter(e => e._id !== id);
                             setEvents(remainingEvents);

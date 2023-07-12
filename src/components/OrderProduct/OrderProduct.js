@@ -20,7 +20,7 @@ const OrderProduct = () => {
     const addressRef = useRef('');
 
     useEffect(() => {
-        axios.get(`https://blooming-dusk-51251.herokuapp.com/api/products/${id}`)
+        axios.get(`https://prosenjit-enterprise-server-side-node.onrender.com/api/products/${id}`)
             .then(res => setSelectProduct(res.data))
     }, [])
 
@@ -44,7 +44,7 @@ const OrderProduct = () => {
                 Authorization: 'Bearer ' + token
             }
         }
-        axios.post('https://blooming-dusk-51251.herokuapp.com/api/orders', data, header)
+        axios.post('https://prosenjit-enterprise-server-side-node.onrender.com/api/orders', data, header)
             .then(res => {
                 swal({
                     title: "Thank you Sir",
